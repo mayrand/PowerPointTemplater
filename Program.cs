@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace PowerPointTemplater
 {
@@ -12,7 +13,9 @@ namespace PowerPointTemplater
     {
         static void Main(string[] args)
         {
-            foreach (string s in GetAllTextInSlide(@"/home/ao/net/PowerPointTemplater/test.pptx", 1))
+            var path = Directory.GetCurrentDirectory();
+            Console.WriteLine(path);
+            foreach (string s in GetAllTextInSlide(Path.Combine(path, "test.pptx"), 1))
                 Console.WriteLine(s);
         }
         // Get all the text in a slide.
